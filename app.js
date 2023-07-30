@@ -5,7 +5,6 @@ const express = require("express");
 //var app = express();
 // var http = require('http').Server(app);
 // var io = require('socket.io')(http);
-app.use(express.static(__dirname + '/public'));
 
 
 
@@ -13,7 +12,8 @@ app.use(express.static(__dirname + '/public'));
 
  const app = express(); 
  const port = process.env.PORT || 3001; 
-  
+  app.use(express.static(__dirname + '/public'));
+
 // app.get("/", (req, res) => res.type('html').send(html)); 
 app.get('/', function(req, res) {
    res.sendfile('index.html');
