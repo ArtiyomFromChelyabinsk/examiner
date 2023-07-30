@@ -1,8 +1,23 @@
 const express = require("express"); 
+
+
+
+//var app = express();
+// var http = require('http').Server(app);
+// var io = require('socket.io')(http);
+app.use(express.static(__dirname + '/public'));
+
+
+
+
+
  const app = express(); 
  const port = process.env.PORT || 3001; 
   
- app.get("/", (req, res) => res.type('html').send(html)); 
+// app.get("/", (req, res) => res.type('html').send(html)); 
+app.get('/', function(req, res) {
+   res.sendfile('index.html');
+ });
   
  const server = app.listen(port, () => console.log(`Example app listening on port ${port}!`)); 
   
