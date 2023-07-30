@@ -1,12 +1,16 @@
 const express = require("express"); 
 
- const app = express(); 
- const port = process.env.PORT || 3001; 
+const app = express(); 
+const port = process.env.PORT || 3001; 
  
- app.use(express.static(__dirname + '/public'));
+app.use(express.static(__dirname + '/public'));
 
 app.get('/', function(req, res) {
    res.sendfile('index.html');
+ });
+ 
+app.get('/hello', (req, res) => {
+   res.send('Hello World, from express');
  });
   
  const server = app.listen(port, () => console.log(`Example app listening on port ${port}!`)); 
