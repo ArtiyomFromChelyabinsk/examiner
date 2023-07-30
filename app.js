@@ -70,7 +70,7 @@ app.get('/', function(req, res) {
    </head> 
    <body> 
      <section> 
-       Hello from Render! 
+       Hello there! 
      </section> 
    </body> 
  </html> 
