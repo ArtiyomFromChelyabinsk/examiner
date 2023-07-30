@@ -1,2 +1,2 @@
-  fetch('https://examiner-service.onrender.com/hello').then(respose => alert(respose.json))
+  fetch('https://examiner-service.onrender.com/hello').then(respose => { return respose.json()}).then(data => alert(data))
   
