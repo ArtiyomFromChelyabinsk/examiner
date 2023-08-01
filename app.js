@@ -17,7 +17,7 @@ db.run("insert into v values ('fh1')");
 
 
 
-db.close()
+
 
 
 
@@ -48,4 +48,4 @@ res.json({ a: 1 });
  server.headersTimeout = 120 * 1000;
  
  
-
+db.close()
