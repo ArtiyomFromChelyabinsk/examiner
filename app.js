@@ -14,9 +14,7 @@ let db = new sqlite3.Database('words.db', (err) => {
  
 db.run("insert into v values ('fh1')");
 
-db.get("SELECT * FROM v", (error, row) => {
-    console.log("the id is " + row.id);
-});
+
 
 
 db.close()
@@ -35,6 +33,9 @@ app.get('/hello', (req, res) => {
  });
  
 app.get('/db', (req, res) => {
+  db.get("SELECT * FROM v", (error, row) => {
+    res.json({ a: row.id });
+});
 });
 
 app.get('/hi', (req, res) => {  
