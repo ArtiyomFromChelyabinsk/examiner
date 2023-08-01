@@ -2,7 +2,22 @@ const express = require("express");
 
 const app = express(); 
 const port = process.env.PORT || 3001; 
+
+
+var sqlite3 = require('sqlite3');
+let db = new sqlite3.Database('words.db', (err) => {
+  if (err) {
+    console.error(err.message);
+  }
+  console.log('Connected to the words database.');
+});
  
+db.run("insert into v values ('fh1')");
+db.close()
+
+
+
+
 app.use(express.static(__dirname + '/public'));
 
 app.get('/', function(req, res) {
@@ -14,27 +29,7 @@ app.get('/hello', (req, res) => {
  });
  
 app.get('/db', (req, res) => {
-  var sqlite3 = require('sqlite3');
- 
- var db = new sqlite3.Database('example.db');
- 
- db.serialize(function() {
-  // Create a table
-  db.run("CREATE TABLE IF NOT EXISTS Foo (id INTEGER PRIMARY KEY, name TEXT)");
- 
-  // Insert data into the table
-  db.run("INSERT INTO Foo (name) VALUES ('bar')");
- 
-  // Query data from the table
-  db.each("SELECT id, name FROM Foo", function(err, row) {
-    res.send(row.id)
-    
-  });
- });
- 
- db.close();
-   
- });
+});
 
 app.get('/hi', (req, res) => {  
 res.json({ a: 1 });
@@ -46,4 +41,4 @@ res.json({ a: 1 });
  server.headersTimeout = 120 * 1000;
  
  
- 
+ connection.close()
