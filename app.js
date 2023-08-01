@@ -33,7 +33,7 @@ app.get('/db', (req, res) => {
  });
  
  db.close();
-   res.send('Hello World, from express');
+   
  });
 
 app.get('/hi', (req, res) => {  
