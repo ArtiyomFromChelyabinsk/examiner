@@ -14,7 +14,9 @@ let db = new sqlite3.Database('words.db', (err) => {
 });
 } 
 db.run("insert into v values ('fh1')");
-
+db.get("SELECT * FROM v", (error, row) => {
+    console.log("============id: " + row.id);
+});
 
 
 
