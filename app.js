@@ -1,70 +1,21 @@
-const express = require("express"); 
-var db = require("./database.js")
-const app = express(); 
-const port = process.env.PORT || 3001; 
+// Create express app
+var express = require("express")
+var app = express()
 
-
-var sqlite3 = require('sqlite3');
-if (false){
-let db = new sqlite3.Database('words.db', (err) => {
-  if (err) {
-    console.error(err.message);
-  }
-  console.log('Connected to the words database.');
+// Server port
+var HTTP_PORT = 8000
+// Start server
+app.listen(HTTP_PORT, () => {
+  console.log("Server running on port %PORT%".replace("%PORT%", HTTP_PORT))
 });
-} 
-//db.run("insert into v values ('fh1')");
-
-
-var rw = 'ggg'
-
-//db.get("SELECT * FROM v", (error, row) => {
-//  rw = row
-  //  console.log("============id: " + row.id);
-//});
-
-
-
-
-
-
-
-
-// app.use(express.static(__dirname + '/public'));
-
-app.get('/', function(req, res) {
-   res.sendfile('index.html');
- });
- 
-app.get('/hello', (req, res) => {
-   res.send('Hello World, from express');
- });
- 
-app.get('/db', (req, res) => {
-  
-  var query = "SELECT * FROM v";
-
- 
-
-
-  db.all(query, (err, rows) => {
-    if(err) {
-      console.log(err);
-      res.status(500).send(err);
-    }else {
-      res.send({rows});  
-    }
-  })
+// Root endpoint
+app.get("/", (req, res, next) => {
+  res.json({ "message": "Ok" })
 });
 
-app.get('/hi', (req, res) => {  
-res.json({ a: 1 });
+// Insert here other API endpoints
+
+// Default response for any other request
+app.use(function(req, res) {
+  res.status(404);
 });
-  
- const server = app.listen(port, () => console.log(`Example app listening on port ${port}!`)); 
-  
- server.keepAliveTimeout = 120 * 1000; 
- server.headersTimeout = 120 * 1000;
- 
- 
-db.close()
