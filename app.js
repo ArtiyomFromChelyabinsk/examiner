@@ -5,13 +5,14 @@ const port = process.env.PORT || 3001;
 
 
 var sqlite3 = require('sqlite3');
+if (false){
 let db = new sqlite3.Database('words.db', (err) => {
   if (err) {
     console.error(err.message);
   }
   console.log('Connected to the words database.');
 });
- 
+} 
 db.run("insert into v values ('fh1')");
 
 
