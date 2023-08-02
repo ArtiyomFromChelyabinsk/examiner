@@ -30,7 +30,7 @@ db.get("SELECT * FROM v", (error, row) => {
 
 
 
-app.use(express.static(__dirname + '/public'));
+// app.use(express.static(__dirname + '/public'));
 
 app.get('/', function(req, res) {
    res.sendfile('index.html');
