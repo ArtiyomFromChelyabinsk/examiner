@@ -37,7 +37,7 @@ app.get('/hello', (req, res) => {
  
 app.get('/db', (req, res) => {
   db.get("SELECT * FROM v", (error, row) => {
-    res.json({ a: row.id });
+    res.send(row.id);
 });
 });
 
