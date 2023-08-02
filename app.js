@@ -38,7 +38,7 @@ app.get('/hello', (req, res) => {
 app.get('/db', (req, res) => {
   db.get("SELECT * FROM v", (error, row) => {
     // console.log('row=====' + row[0].id);
-    res.send('row.id');
+    res.send(row);
 });
 });
 
