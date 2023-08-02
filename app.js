@@ -41,10 +41,20 @@ app.get('/hello', (req, res) => {
  });
  
 app.get('/db', (req, res) => {
-  db.get("SELECT * FROM v", (error, row) => {
-  rw = row
-    res.send(rw)
-});
+  
+  var query = "SELECT * FROM v";
+
+ 
+
+
+  db.all(query, (err, rows) => {
+    if(err) {
+      console.log(err);
+      res.status(500).send(err);
+    }else {
+      res.send({rows});  
+    }
+  })
 });
 
 app.get('/hi', (req, res) => {  
