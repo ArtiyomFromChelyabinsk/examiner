@@ -1,6 +1,7 @@
 // Create express app
 var express = require("express")
 var app = express()
+var db = require("./database.js")
 
 // Server port
 var HTTP_PORT = 8000
