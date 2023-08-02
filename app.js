@@ -13,15 +13,15 @@ let db = new sqlite3.Database('words.db', (err) => {
   console.log('Connected to the words database.');
 });
 } 
-db.run("insert into v values ('fh1')");
+//db.run("insert into v values ('fh1')");
 
 
 var rw = 'ggg'
 
-db.get("SELECT * FROM v", (error, row) => {
-  rw = row
-    console.log("============id: " + row.id);
-});
+//db.get("SELECT * FROM v", (error, row) => {
+//  rw = row
+  //  console.log("============id: " + row.id);
+//});
 
 
 
