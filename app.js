@@ -16,6 +16,7 @@ app.get("/", (req, res, next) => {
 
 app.get("/api/users", (req, res, next) => {
     var sql = "select * from user"
+    sql = "select * from v"
     var params = []
     db.all(sql, params, (err, rows) => {
         if (err) {
