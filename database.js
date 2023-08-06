@@ -1,7 +1,7 @@
 var sqlite3 = require('sqlite3').verbose()
 var md5 = require('md5')
 
-const DBSOURCE = "db.sqlite"
+var DBSOURCE = "db.sqlite"
 DBSOURCE = "words.db"
 
 
