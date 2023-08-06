@@ -3,16 +3,35 @@ var express = require("express")
 var app = express()
 var db = require("./database.js")
 
+
+
+// Static Middleware
+app.use(express.static(path.join(__dirname, 'public')))
+ 
+app.get('/', function (req, res, next) {
+    res.render('index.html');
+})
+
+
+
+
+
+
+
+
 // Server port
 var HTTP_PORT = 8000
 // Start server
 app.listen(HTTP_PORT, () => {
   console.log("Server running on port %PORT%".replace("%PORT%", HTTP_PORT))
 });
+
+
+
 // Root endpoint
-app.get("/", (req, res, next) => {
-  res.json({ "message": "Ok" })
-});
+// app.get("/", (req, res, next) => {
+//  res.json({ "message": "Ok" })
+// });
 
 app.get("/api/users", (req, res, next) => {
     var sql = "select * from user"
