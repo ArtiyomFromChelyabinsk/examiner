@@ -33,7 +33,7 @@ app.listen(HTTP_PORT, () => {
 //  res.json({ "message": "Ok" })
 // });
 
-app.get("/api/users", (req, res, next) => {
+app.get("/api/all", (req, res, next) => {
     var sql = "select * from user"
     sql = "select * from v"
     var params = []
